@@ -3,7 +3,7 @@
     Authors: James Gallicchio
 -/
 
-import Std
+import Batteries
 import Http.Parser
 import Http.HeaderName
 
@@ -27,7 +27,7 @@ def toRequestFormat (h : Headers) : String :=
 def empty : Headers := .empty
 
 def add (self : Headers) (name : HeaderName) (value : String) : Headers :=
-  match self.find? name with
+  match self.get? name with
   | none => self.insert name [value]
   | some v => self.insert name (value :: v)
 

@@ -14,7 +14,7 @@ def Parser.capture (p : Parser α) : Parser Substring := do
   let p1 ← Parser.getPosition
   let _ ← p
   let p2 ← Parser.getPosition
-  return { (← StateT.get).stream with
+  return { ← Parser.getStream with
       startPos := p1
       stopPos := p2
     }

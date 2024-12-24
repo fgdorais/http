@@ -4,7 +4,7 @@
 -/
 
 import Lean
-import Std
+import Batteries
 
 def Lean.mkDocComment (s : String) :=
   mkNode ``Parser.Command.docComment #[mkAtom "/--", mkAtom (s ++ "-/")]

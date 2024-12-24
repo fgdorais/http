@@ -4,7 +4,7 @@
 -/
 
 import Lean
-import Std
+import Batteries
 import Http.Parser
 import Http.CaseInsString
 
@@ -31,7 +31,7 @@ def ofString (s : String) : Option Scheme :=
   else
     none
 
-instance : Inhabited Scheme := ⟨ofString "a" |>.get rfl⟩
+instance : Inhabited Scheme := ⟨ofString "a" |>.get (by with_unfolding_all rfl)⟩
 
 def HTTP := ofString "http" |>.get!
 def HTTPS := ofString "https" |>.get!
